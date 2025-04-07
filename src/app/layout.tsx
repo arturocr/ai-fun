@@ -1,8 +1,10 @@
-import { ThemeProvider } from '@/components/theme-provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { ThemeProvider } from '@/components/theme-provider';
+
 import '../styles/globals.css';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'AI Fun',
-  description: 'Dress up with the help of AI',
+  title: 'dressassistant.ai',
+  description: 'Weather-Based Clothing Recommendations',
 };
 
 export default function RootLayout({
@@ -29,6 +31,9 @@ export default function RootLayout({
           disableTransitionOnChange
           enableSystem
         >
+          <div className="fixed top-4 right-4 z-50">
+            <ThemeToggle />
+          </div>
           {children}
         </ThemeProvider>
       </body>
