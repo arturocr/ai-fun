@@ -3,9 +3,8 @@
  * Uses Open-Meteo API which is free and open-source
  */
 
-import { getClothingRecommendations } from '@/utils';
 import { WeatherCastDetails } from './types';
-import { getWeatherCast } from './utils';
+import { getClothingRecommendations, getWeatherCast } from './utils';
 
 export interface WeatherDay {
   date: string;
@@ -68,7 +67,7 @@ export async function getWeatherForecast(
       const windSpeed = data.daily.windspeed_10m_max[i];
 
       // Generate clothing recommendations based on weather parameters
-      const clothing = getClothingRecommendations(
+      const clothing = await getClothingRecommendations(
         temperatureMax,
         temperatureMin,
         precipitation,

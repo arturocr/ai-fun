@@ -12,7 +12,16 @@ export default async function Header() {
   return (
     <header className="flex justify-end items-center p-4 gap-2 h-16 fixed top-4 right-4 z-50">
       <HomeButton />
-      {data?.user ? <LogoutButton /> : <LoginButton />}
+      {data?.user ? (
+        <>
+          <small className="text-sm font-medium leading-none">
+            Hello, {data?.user.email}
+          </small>
+          <LogoutButton />
+        </>
+      ) : (
+        <LoginButton />
+      )}
       <ThemeToggle />
     </header>
   );

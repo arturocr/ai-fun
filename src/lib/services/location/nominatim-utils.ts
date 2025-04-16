@@ -34,7 +34,8 @@ export async function getNominatimLocation(
         lat: 0,
         lon: 0,
         success: false,
-        error: 'Location not found',
+        error:
+          'Location not found, trying something more specific or descriptive',
       };
     }
 

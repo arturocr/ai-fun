@@ -27,6 +27,8 @@ export default function WeatherRecommendations() {
         } catch (err) {
           console.error('Error parsing updated forecast:', err);
         }
+      } else {
+        setForecast(null);
       }
     };
 
@@ -59,7 +61,7 @@ export default function WeatherRecommendations() {
         {forecast.days.map((day) => (
           <div
             key={day.date}
-            className="rounded-lg border border-border p-4 shadow-sm hover:shadow-md transition hover:scale-105"
+            className="rounded-lg border border-border p-4 shadow-sm hover:shadow-md transition hover:scale-102"
           >
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-lg font-medium">{day.date}</h3>

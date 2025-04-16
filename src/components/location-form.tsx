@@ -1,13 +1,16 @@
 'use client';
 
-import { LoaderCircle } from 'lucide-react';
+import { AlertCircle, LoaderCircle } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { useState } from 'react';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { Button } from './ui/button';
 
 export default function LocationForm() {
   const [location, setLocation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const { resolvedTheme } = useTheme();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +24,9 @@ export default function LocationForm() {
     setError('');
 
     try {
+      sessionStorage.removeItem('weatherForecast');
+      window.dispatchEvent(new Event('weatherDataUpdated'));
+
       // Parse the location into coordinates using our API
       const locationResponse = await fetch('/api/location', {
         method: 'POST',
@@ -101,13 +107,22 @@ export default function LocationForm() {
           </p>
         </div>
 
-        {error && <div className="text-red-500 text-sm">{error}</div>}
+        {error && (
+          <Alert
+            variant={resolvedTheme === 'light' ? 'destructive' : 'default'}
+          >
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
 
         <Button
           type="submit"
           disabled={isLoading}
           className="w-full"
-          variant="secondary"
+          variant="default"
+          size="lg"
         >
           {isLoading ? (
             <>
