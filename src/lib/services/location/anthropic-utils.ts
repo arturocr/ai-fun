@@ -15,10 +15,8 @@ export async function parseDescriptiveLocation(
       throw new Error('ANTHROPIC_API_KEY is not set in environment variables');
     }
 
-    if (!process.env.THINKING_ANTHROPIC_MODEL) {
-      throw new Error(
-        'THINKING_ANTHROPIC_MODEL is not set in environment variables',
-      );
+    if (!process.env.ANTHROPIC_MODEL) {
+      throw new Error('ANTHROPIC_MODEL is not set in environment variables');
     }
 
     const anthropic = new Anthropic({
@@ -26,7 +24,7 @@ export async function parseDescriptiveLocation(
     });
 
     const message = await anthropic.messages.create({
-      model: process.env.THINKING_ANTHROPIC_MODEL,
+      model: process.env.ANTHROPIC_MODEL,
       max_tokens: 1000,
       messages: [
         {
