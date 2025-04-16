@@ -1,20 +1,20 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-import { ThemeProvider } from '@/components/theme-provider';
+import Header from "@/components/header";
+import Providers from "@/components/providers";
 
-import '../styles/globals.css';
-import { ThemeToggle } from '@/components/theme-toggle';
+import "../styles/globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: 'dressassistant.ai',
-  description: 'Weather-Based Clothing Recommendations',
+  title: "dressassistant.ai",
+  description: "Weather-Based Clothing Recommendations",
 };
 
 export default function RootLayout({
@@ -25,17 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          enableSystem
-        >
-          <div className="fixed top-4 right-4 z-50">
-            <ThemeToggle />
-          </div>
+        <Providers>
+          <Header />
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
