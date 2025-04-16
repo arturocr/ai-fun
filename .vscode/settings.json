@@ -4,6 +4,7 @@
     "Meteo",
     "Nominatim",
     "OpenMeteo",
+    "SUPABASE",
     "timeformat",
     "unixtime",
     "weathercode",
