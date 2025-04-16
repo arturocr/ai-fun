@@ -4,8 +4,12 @@ import { updateSession } from '@/lib/supabase/middleware';
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
-  // Home page is always accessible to everyone
-  if (request.nextUrl.pathname === '/') {
+  // Pages and API routes that are always accessible to everyone
+  if (
+    request.nextUrl.pathname === '/' ||
+    request.nextUrl.pathname === '/api/location' ||
+    request.nextUrl.pathname === '/api/weather'
+  ) {
     return NextResponse.next();
   }
 
