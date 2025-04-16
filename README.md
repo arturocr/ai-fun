@@ -11,12 +11,28 @@ A Next.js application that provides clothing recommendations based on weather fo
 
 ## Technology Stack
 
-- **Framework**: Next.js 15 with React 19
-- **Styling**: Tailwind CSS v4
+- **Framework**: Next.js 15 with React 19 (using React Compiler)
+- **Language**: TypeScript
+- **State Management**: React hooks
+- **UI Components**:
+  - Shadcn UI (with Radix UI primitives)
+  - Lucide React for icons
+  - QWeather Icons for weather visualization
+- **Styling**:
+  - Tailwind CSS v4 with animations
+  - Class Variance Authority (CVA) for component variants
+  - Tailwind Merge for class name merging
+- **Backend & Authentication**:
+  - Supabase for database and authentication
 - **APIs**:
   - Anthropic API for descriptive location finding
   - OpenStreetMap Nominatim API for geocoding (free and open source)
   - Open-Meteo for weather forecasts (free and open source)
+- **Development Tools**:
+  - Biome for linting and formatting
+  - PNPM for package management
+  - Next.js Turbo for faster development builds
+- **Theming**: next-themes for light/dark mode support
 - **Deployment**: Vercel
 
 ## Getting Started
