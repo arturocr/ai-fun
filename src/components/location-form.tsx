@@ -3,6 +3,7 @@
 import { AlertCircle, LoaderCircle } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
+
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { Button } from './ui/button';
 
@@ -58,6 +59,7 @@ export default function LocationForm() {
           lon: locationData.lon,
           city: locationData.city,
           country: locationData.country,
+          location_input: location.trim(), // Pass the original input
         }),
       });
 

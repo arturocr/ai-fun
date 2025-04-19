@@ -10,7 +10,7 @@ export default function HomeButton() {
   const pathname = usePathname();
 
   if (pathname === '/') {
-    return null;
+    return <span />;
   }
 
   return (

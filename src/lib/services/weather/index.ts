@@ -3,26 +3,8 @@
  * Uses Open-Meteo API which is free and open-source
  */
 
-import { WeatherCastDetails } from './types';
+import { WeatherDay, WeatherForecast } from './types';
 import { getClothingRecommendations, getWeatherCast } from './utils';
-
-export interface WeatherDay {
-  date: string;
-  weatherCast: WeatherCastDetails;
-  temperatureMax: number;
-  temperatureMin: number;
-  precipitation: number;
-  windSpeed: number;
-  clothing: string[];
-}
-
-export interface WeatherForecast {
-  city: string;
-  country: string;
-  days: WeatherDay[];
-  success: boolean;
-  error?: string;
-}
 
 export async function getWeatherForecast(
   lat: number,

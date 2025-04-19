@@ -8,9 +8,11 @@ export default function AuthLayout({
 }) {
   return (
     <>
-      <header className="flex justify-end items-center p-4 gap-2 h-16 fixed top-4 right-4 z-50">
-        <HomeButton />
-        <ThemeToggle />
+      <header>
+        <div className="container max-w-5xl mx-auto py-3 flex justify-between items-center gap-2 px-4">
+          <HomeButton />
+          <ThemeToggle />
+        </div>
       </header>
       <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
         <div className="w-full max-w-sm">{children}</div>

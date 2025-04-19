@@ -4,12 +4,17 @@ import { updateSession } from '@/lib/supabase/middleware';
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
-  // Pages and API routes that are always accessible to everyone
-  if (
-    request.nextUrl.pathname === '/' ||
-    request.nextUrl.pathname === '/api/location' ||
-    request.nextUrl.pathname === '/api/weather'
-  ) {
+  // Skip auth checks for public routes
+  const publicPaths = [
+    '/',
+    '/api/location',
+    '/api/weather',
+    '/auth/login',
+    '/auth/sign-up',
+    '/auth/reset-password',
+  ];
+
+  if (publicPaths.some((path) => request.nextUrl.pathname === path)) {
     return NextResponse.next();
   }
 

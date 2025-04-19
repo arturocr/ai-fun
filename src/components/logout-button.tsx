@@ -1,9 +1,10 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { createClient } from '@/lib/supabase/client';
 import { LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+
+import { Button } from '@/components/ui/button';
+import { createClient } from '@/lib/supabase/client';
 
 export function LogoutButton() {
   const router = useRouter();
